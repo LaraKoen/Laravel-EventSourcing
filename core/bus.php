@@ -10,7 +10,7 @@ class Bus {
 	public static function publish($event)
 	{
 		$identifier = get_class($event);
-		EventStore::save_events($event->attributes['uuid'], $event);
+		EventStore::save_events($event->attributes['uuid'], array($event));
 		Message::publish("es: {$identifier}", array($event));
 	}
 
