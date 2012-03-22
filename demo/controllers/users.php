@@ -13,7 +13,7 @@ class Demo_Users_Controller extends Controller {
 
 	public function __construct()
 	{
-		Asset::container('header')->bundle('demo')->add('style', 'css/style.css');
+		Asset::container('header')->bundle('es')->add('style', 'css/style.css');
 	}
 
 	public function get_index()

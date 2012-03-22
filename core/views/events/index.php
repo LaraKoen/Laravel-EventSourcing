@@ -28,7 +28,7 @@
 				<?php endforeach ?>
 			</tbody>
 		</table>
-		<?php foreach(ES\EventHandlers::$handlers['event'] as $file => $event): ?>
+		<?php foreach(ES\EventHandlers::$handlers as $file => $event): ?>
 			<input type="checkbox"> 
 			<b><?= $event['title'] ?></b><br>
 			<?= $event['description'] ?><br>
