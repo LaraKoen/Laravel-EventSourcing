@@ -3,9 +3,9 @@
 use ES\Bus;
 use ES\Libraries\UUID;
 
-use Demo\Events\UserRegistered;
-use Demo\Events\UserUpdated;
-use Demo\Events\UserDeleted;
+use Demo\Events\V1\UserRegistered;
+use Demo\Events\V1\UserUpdated;
+use Demo\Events\V1\UserDeleted;
 
 class Demo_Users_Controller extends Controller {
 	

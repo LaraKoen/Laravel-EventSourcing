@@ -1,4 +1,4 @@
-<?php namespace Demo\Events;
+<?php namespace Demo\Events\V1;
 
 class UserUpdated {
 	

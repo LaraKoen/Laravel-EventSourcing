@@ -2,15 +2,15 @@
 
 use ES\Bus;
 
-Bus::register('es: Demo\Events\UserRegistered', function($event) {
+Bus::register('es: Demo\Events\V1\UserRegistered', function($event) {
 	DB::table('users')->insert($event->attributes);
 });
 
-Bus::register('es: Demo\Events\UserUpdated', function($event) {
+Bus::register('es: Demo\Events\V1\UserUpdated', function($event) {
 	DB::table('users')->where_uuid($event->attributes['uuid'])->update($event->attributes);
 });
 
-Bus::register('es: Demo\Events\UserDeleted', function($event) {
+Bus::register('es: Demo\Events\V1\UserDeleted', function($event) {
 	DB::table('users')->where_uuid($event->attributes['uuid'])->delete();
 });
 

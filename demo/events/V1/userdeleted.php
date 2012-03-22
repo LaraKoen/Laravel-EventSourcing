@@ -1,6 +1,6 @@
-<?php namespace Demo\Events;
+<?php namespace Demo\Events\V1;
 
-class UserRegistered {
+class UserDeleted {
 	
 	public $attributes;
 
