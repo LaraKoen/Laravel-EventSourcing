@@ -1,6 +1,6 @@
 <?php namespace Demo\Events;
 
-class RegisterUser {
+class UserRegistered {
 	
 	public $attributes;
 

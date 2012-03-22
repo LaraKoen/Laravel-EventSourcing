@@ -1,6 +1,6 @@
 <?php namespace Demo\Events;
 
-class DeleteUser {
+class UserUpdated {
 	
 	public $attributes;
 

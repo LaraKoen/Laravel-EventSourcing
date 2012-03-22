@@ -3,9 +3,9 @@
 use ES\Bus;
 use ES\Libraries\UUID;
 
-use Demo\Events\RegisterUser;
-use Demo\Events\UpdateUser;
-use Demo\Events\DeleteUser;
+use Demo\Events\UserRegistered;
+use Demo\Events\UserUpdated;
+use Demo\Events\UserDeleted;
 
 class Demo_Users_Controller extends Controller {
 	
@@ -34,7 +34,7 @@ class Demo_Users_Controller extends Controller {
 			'first_name' => Input::get('first_name'),
 			'last_name' => Input::get('last_name')
 		);
-		Bus::publish(new RegisterUser($data));
+		Bus::publish(new UserRegistered($data));
 
 		return Redirect::to('demo/users/index')->with('message', 'Successfully added user');
 	}
@@ -53,7 +53,7 @@ class Demo_Users_Controller extends Controller {
 			'first_name' => Input::get('first_name'),
 			'last_name' => Input::get('last_name')
 		);
-		Bus::publish(new UpdateUser($data));
+		Bus::publish(new UserUpdated($data));
 		
 		return Redirect::to('demo/users/index')->with('message', 'Successfully edited user');
 	}
@@ -70,7 +70,7 @@ class Demo_Users_Controller extends Controller {
 		$data = array(
 			'uuid' => Input::get('uuid')
 		);
-		Bus::publish(new DeleteUser($data));
+		Bus::publish(new UserDeleted($data));
 
 		return Redirect::to('demo/users/index')->with('message', 'Successfully deleted user');
 	}
