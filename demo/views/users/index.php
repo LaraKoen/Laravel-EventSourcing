@@ -8,6 +8,7 @@
 <body>
 	<div id="container">
 		<h1>Users</h1>
+		<h2><?= Session::has('message') ? Session::get('message') : '' ?></h2>
 		<table>
 			<thead>
 				<tr>

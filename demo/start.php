@@ -1,11 +1,11 @@
 <?php
 
-Route::controller('demo::users');
+Autoloader::namespaces(array(
+	'Demo' => __DIR__
+));
 
 ES\EventHandlers::register(array(
 	__DIR__.DS.'eventhandlers'
 ));
 
-Autoloader::namespaces(array(
-	'Demo' => __DIR__
-));
+Route::controller('demo::users');

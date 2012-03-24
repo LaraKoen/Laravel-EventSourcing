@@ -6,7 +6,10 @@ Autoloader::namespaces(array(
 
 use ES\EventHandlers;
 
-Route::controller('es::events');
+Route::controller(array(
+	'es::events',
+	'es::eventhandlers'
+));
 
 if($allowed_events = Input::get('allowed_events'))
 {
