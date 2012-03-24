@@ -2,11 +2,11 @@
 
 class UserDeleted {
 	
-	public $attributes;
+	public $uuid;
 
-	public function __construct($attributes)
+	public function __construct($uuid)
 	{
-		$this->attributes = $attributes;
+		$this->uuid = $uuid;
 	}
 
 }

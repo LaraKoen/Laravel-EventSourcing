@@ -2,28 +2,26 @@
 
 use ES\Bus;
 
-Bus::listen('es: Demo\Events\V1\UserRegistered', function($event) {
+Bus::listen('es: Demo\Events\V2\UserRegistered', function($event) {
 	$row = array(
 		'uuid' => $event->uuid,
-		'full_name' => $event->full_name,
+		'first_name' => $event->first_name,
+		'last_name' => $event->last_name,
 		'version' => $event->version
 	);
-
+	
 	DB::table('users')->insert($row);
 });
 
-Bus::listen('es: Demo\Events\V1\UserUpdated', function($event) {
+Bus::listen('es: Demo\Events\V2\UserUpdated', function($event) {
 	$row = array(
 		'uuid' => $event->uuid,
-		'full_name' => $event->full_name,
+		'first_name' => $event->first_name,
+		'last_name' => $event->last_name,
 		'version' => $event->version
 	);
 
 	DB::table('users')->where_uuid($event->uuid)->update($row);
-});
-
-Bus::listen('es: Demo\Events\V1\UserDeleted', function($event) {
-	DB::table('users')->where_uuid($event->uuid)->delete();
 });
 
 

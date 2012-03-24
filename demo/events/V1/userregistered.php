@@ -2,11 +2,13 @@
 
 class UserRegistered {
 	
-	public $attributes;
+	public $uuid;
+	public $full_name;
 
-	public function __construct($attributes)
+	public function __construct($uuid, $full_name)
 	{
-		$this->attributes = $attributes;
+		$this->uuid = $uuid;
+		$this->full_name = $full_name;
 	}
 
 }
