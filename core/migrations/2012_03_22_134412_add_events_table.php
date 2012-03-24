@@ -14,6 +14,7 @@ class ES_Add_Events_Table {
 			$table->create();
 			$table->increments('id');
 			$table->string('uuid')->index('event_uuid_index');
+			$table->string('identifier');
 			$table->integer('version');
 			$table->timestamp('executed_at');
 			$table->text('event');

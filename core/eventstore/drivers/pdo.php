@@ -66,23 +66,20 @@ class PDO {
 	 *
 	 * @return void
 	 */
-	public function save_events($uuid, $events)
+	public function save_event($event)
 	{
-		$version = $this->get_last_version($uuid);
-
-		$rows = array();
-		foreach ($events as $event)
-		{
-			$rows[] = array(
-				'uuid' => $uuid,
+		$version = $this->get_last_version($event->uuid) + 1;
+		DB::table('events')->insert(
+			array(
+				'uuid' => $event->uuid,
+				'identifier' => get_class($event),
 				'event' => serialize($event),
-				'version' => $version + 1,
+				'version' => $version,
 				'executed_at' => 'NOW()'
-			);
-			$version++;
-		}
+			)
+		);
 
-		DB::table('events')->insert($rows);	
+		$event->version = $version;
 	}
 
 	public function all($skip, $take)
