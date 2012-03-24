@@ -14,6 +14,7 @@ class Demo_Add_Users_Table {
 			$table->string('uuid')->index('user_uuid_index');
 			$table->string('first_name');
 			$table->string('last_name');
+			$table->integer('version');
 		});
 	}
 
