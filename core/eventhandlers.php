@@ -12,13 +12,26 @@ class EventHandlers {
 	{
 		if( ! is_array($dirs)) $dirs = array($dirs);
 
+		$enabled_listeners = Setting::get('eventhandlers') ?: array();
+
 		foreach ($dirs as $dir)
 		{
 			foreach (static::files($dir, true) as $file)
 			{
-				if(count(static::$allowed_events) > 0 && ! in_array($file, static::$allowed_events)) continue;
+				/*if(count(static::$allowed_events) > 0 && ! in_array($file, static::$allowed_events)) continue;
 
-				static::$handlers[$file] = require $file;
+				if(array_key_exists($file, $enabled_listeners))
+				{
+					if($enabled_listeners[$file] == true || (count(static::$allowed_events) > 0 && in_array($file, static::$allowed_events)))
+					{*/
+						static::$handlers[$file] = require $file;
+					/*}
+				}
+				// This shoud not be here...
+				else
+				{
+					Setting::set('eventhandlers', array_merge($enabled_listeners, array($file => false)));
+				}*/
 			}
 		}
 	}
